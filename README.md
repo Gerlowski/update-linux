@@ -21,7 +21,7 @@ sudo apt-get install ntpdate
 sudo ntpdate -u ntp.ubuntu.com
 ```
 
--The other possible issue is that you might not have the ```ca-certificates``` package installed, and so GitHub's SSL certificate isn't trusted. If you are on Debian, you can resolve this by typing:
+- The other possible issue is that you might not have the ```ca-certificates``` package installed, and so GitHub's SSL certificate isn't trusted. If you are on Debian, you can resolve this by typing:
 ```
 sudo apt-get install ca-certificates
 ```
