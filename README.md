@@ -10,7 +10,7 @@ sudo curl -L --output /usr/bin/update-linux https://raw.githubusercontent.com/ge
 ```
 # Usage
 ```
-sudo update-linux
+update-linux
 ```
 
 # Troubleshooting
