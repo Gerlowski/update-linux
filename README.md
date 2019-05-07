@@ -13,6 +13,14 @@ sudo curl -L --output /usr/bin/update-linux https://raw.githubusercontent.com/ge
 update-linux
 ```
 
+## Contributing
+
+Please fork this repository and contribute back using
+[pull requests](https://github.com/Gerlowski/update-linux/pulls).
+
+Any contributions, large or small, major features, bug fixes, are welcomed and appreciated
+but will be thoroughly reviewed.
+
 # Troubleshooting
 There are two possible problems related to SSL certificates that may prevent this tool from working.
 - The time may be set incorrectly on your linux, which you can fix by setting the time using NTP.
