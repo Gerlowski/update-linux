@@ -1,5 +1,8 @@
-# update-linux
-An easier way to update the linux distribution
+<div align="center">
+
+# <img src="http://icons.iconarchive.com/icons/alecive/flatwoken/512/Apps-Terminal-Pc-104-icon.png"  height="50px" width="50px">update-linux<img src="http://icons.iconarchive.com/icons/alecive/flatwoken/512/Apps-Terminal-Pc-104-icon.png"  height="50px" width="50px" >
+### (Bash Script Update Linux)
+#### An easier way to update the linux distribution
 
 # Notes
 This gets you the latest bleeding edge kernel/firmware. There is always the possibility of regressions.
