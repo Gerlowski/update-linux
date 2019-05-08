@@ -6,6 +6,13 @@ TIMESTAMP=`date "+%d-%m-%Y %H:%M:%S"`
 LOGFILE="/var/log/update-linux/update.log"
 DIRECTORY="/var/log/update-linux"
 
+# check internet connection
+checkInternet()
+{
+  curl google.com > /dev/null 2>&1 || { echo "Error: no active internet connection" >&2; return 1; } # query google with a get request
+}
+
+checkInternet || exit 1
 
 # check moreutils package
 if [ ! -z `which moreutils` ]; then
@@ -25,9 +32,10 @@ if (( $EUID != 0 )); then
 fi
 
 
-apt update | ts '[%d-%m-%Y %H:%M:%S]' 2>&1 | tee -a $LOGFILE
+echo
+apt-get update | ts '[%d-%m-%Y %H:%M:%S]' 2>&1 | tee -a $LOGFILE
 apt-get -y upgrade | ts '[%d-%m-%Y %H:%M:%S]' 2>&1 | tee -a $LOGFILE
 apt-get -y dist-upgrade | ts '[%d-%m-%Y %H:%M:%S]' 2>&1 | tee -a $LOGFILE
 apt-get clean | ts '[%d-%m-%Y %H:%M:%S]' 2>&1 | tee -a $LOGFILE
 apt-get -y autoremove | ts '[%d-%m-%Y %H:%M:%S]' 2>&1 | tee -a $LOGFILE
-apt purge -y $(dpkg -l | awk '/^rc/ { print $2 }') | ts '[%d-%m-%Y %H:%M:%S]' 2>&1 | tee -a $LOGFILE
+apt-get purge -y $(dpkg -l | awk '/^rc/ { print $2 }') | ts '[%d-%m-%Y %H:%M:%S]' 2>&1 | tee -a $LOGFILE
