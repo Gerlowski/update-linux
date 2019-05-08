@@ -13,7 +13,12 @@ sudo curl -L --output /usr/bin/update-linux https://raw.githubusercontent.com/ge
 update-linux
 ```
 
-## Contributing
+You can check log output by typing:
+```
+cat /var/log/update-linux/update.log
+```
+
+# Contributing
 
 Please fork this repository and contribute back using
 [pull requests](https://github.com/Gerlowski/update-linux/pulls).
