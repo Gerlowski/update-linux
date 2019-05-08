@@ -3,7 +3,7 @@
 # https://github.com/Gerlowski/
 
 TIMESTAMP=`date "+%d-%m-%Y %H:%M:%S"`
-LOGFILE="/var/log/update-linux/update_test.log"
+LOGFILE="/var/log/update-linux/update.log"
 DIRECTORY="/var/log/update-linux"
 
 
