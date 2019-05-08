@@ -1,12 +1,33 @@
 #!/bin/bash
+# Author
+# https://github.com/Gerlowski/
+
+TIMESTAMP=`date "+%d-%m-%Y %H:%M:%S"`
+LOGFILE="/var/log/update-linux/update_test.log"
+DIRECTORY="/var/log/update-linux"
+
+
+# check moreutils package
+if [ ! -z `which moreutils` ]; then
+		installing "moreutils"
+		apt-get install moreutils
+fi
+
+# if log directory doesn't exist, create them
+if [ ! -d "$DIRECTORY" ]; then
+	mkdir $DIRECTORY
+fi
+
 # if not root, run as root
 if (( $EUID != 0 )); then
-    sudo /usr/bin/update-linux
+    sudo /home/jb/bash/update.sh
     exit
 fi
-apt-get update
-apt-get -y upgrade
-apt-get -y dist-upgrade
-apt-get clean
-apt-get -y autoremove
-apt purge -y $(dpkg -l | awk '/^rc/ { print $2 }')
+
+
+apt update | ts '[%d-%m-%Y %H:%M:%S]' 2>&1 | tee -a $LOGFILE
+apt-get -y upgrade | ts '[%d-%m-%Y %H:%M:%S]' 2>&1 | tee -a $LOGFILE
+apt-get -y dist-upgrade | ts '[%d-%m-%Y %H:%M:%S]' 2>&1 | tee -a $LOGFILE
+apt-get clean | ts '[%d-%m-%Y %H:%M:%S]' 2>&1 | tee -a $LOGFILE
+apt-get -y autoremove | ts '[%d-%m-%Y %H:%M:%S]' 2>&1 | tee -a $LOGFILE
+apt purge -y $(dpkg -l | awk '/^rc/ { print $2 }') | ts '[%d-%m-%Y %H:%M:%S]' 2>&1 | tee -a $LOGFILE
