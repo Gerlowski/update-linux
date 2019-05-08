@@ -4,6 +4,8 @@
 ### (Bash Script Update Linux)
 #### An easier way to update the linux distribution
 
+</div>
+
 # Notes
 This gets you the latest bleeding edge kernel/firmware. There is always the possibility of regressions.
 
