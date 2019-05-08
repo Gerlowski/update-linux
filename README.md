@@ -23,6 +23,11 @@ You can check log output by typing:
 cat /var/log/update-linux/update.log
 ```
 
+# To-do list
+- [x] **Check internet connection**
+- [x] **Create log file**
+- [ ] **Automatic script update at runtime**
+
 # Contributing
 
 Please fork this repository and contribute back using
