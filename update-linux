@@ -15,9 +15,9 @@ checkInternet()
 checkInternet || exit 1
 
 # check moreutils package
-if [ ! -z `which moreutils` ]; then
+if [ -z `which moreutils` ]; then
 		installing "moreutils"
-		apt-get install moreutils
+		apt-get install moreutils -y
 fi
 
 # if log directory doesn't exist, create them
